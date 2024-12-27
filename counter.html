@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>React Basics</title>
+    <title>Counter App</title>
   </head>
   <body>
     <div class="js-container"></div>
@@ -16,7 +16,7 @@
         function increaseCount() {
           setCount(count + 1);
         }
-
+        
         return (
           <button onClick={increaseCount}>
             Clicked {count} {count === 1 ? 'time' : 'times'}
@@ -26,12 +26,15 @@
 
       function App() {
         const [count, setCount] = React.useState(0); //State in Parent Component:The App component manages the count  state using useState. 2.It passes the count and setCount handler to its child components.
-
+        function restCount(){
+            setCount(0);
+        }
 
         return (
           <>
             <Counter count={count} setCount={setCount}/>
             <Counter  count={count} setCount={setCount}/>
+            <button onClick={restCount}>Rest</button>
           </>
         )
       }
