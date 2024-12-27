@@ -11,8 +11,8 @@
 
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
-      function Counter() {
-        const [count, setCount] = React.useState(0);
+      function Counter({count,setCount}) {
+       //Single Source of Truth:The App component acts as a single source of truth for the count.
         function increaseCount() {
           setCount(count + 1);
         }
@@ -25,12 +25,13 @@
       }
 
       function App() {
-        
+        const [count, setCount] = React.useState(0); //State in Parent Component:The App component manages the count  state using useState. 2.It passes the count and setCount handler to its child components.
+
 
         return (
           <>
-            <Counter />
-            <Counter />
+            <Counter count={count} setCount={setCount}/>
+            <Counter  count={count} setCount={setCount}/>
           </>
         )
       }
