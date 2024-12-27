@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Counter App</title>
+    <title>React Basics</title>
   </head>
   <body>
     <div class="js-container"></div>
@@ -9,20 +9,19 @@
     <script src="https://unpkg.com/supersimpledev/react.js"></script>
     <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
 
-    <script src="https://unpkg.com/supersimpledev/chatbot.js"></script>
-
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
-      
-
-        
-
       function App() {
-       
+        const [count, setCount] = React.useState(0); // count set intial value  as a 0. useState: Declares a state variable, updates its value, and triggers re-renders.
+
+        function increaseCount() {
+          setCount(count + 1); 
+        } //updater function 
+
         return (
-          <>
-            <p>Welcome to Counter App</p>
-          </>
+          <button onClick={increaseCount}>
+            Clicked {count} times
+          </button>
         );
       }
 
