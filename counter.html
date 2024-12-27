@@ -11,18 +11,28 @@
 
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
-      function App() {
-        const [count, setCount] = React.useState(0); // count set intial value  as a 0. useState: Declares a state variable, updates its value, and triggers re-renders.
-
+      function Counter() {
+        const [count, setCount] = React.useState(0);
         function increaseCount() {
-          setCount(count + 1); 
-        } //updater function 
+          setCount(count + 1);
+        }
 
         return (
           <button onClick={increaseCount}>
-            Clicked {count} times
+            Clicked {count} {count === 1 ? 'time' : 'times'}
           </button>
         );
+      }
+
+      function App() {
+        
+
+        return (
+          <>
+            <Counter />
+            <Counter />
+          </>
+        )
       }
 
       const container = document.querySelector('.js-container');
