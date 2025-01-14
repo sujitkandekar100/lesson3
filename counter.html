@@ -18,9 +18,21 @@
        setCount(count+1); //setCount only for read.
 
       };
+      
       return (
         <>
          <button onClick={buttonCount}>Click {count} button </button>
+        
+        </>
+      );
+    }
+    function RestButton({count,setCount}){
+      function buttonCountRest(){
+         setCount(0);
+      };
+      return(
+        <>
+        <button onClick={buttonCountRest}>reset count</button>
         </>
       );
     }
@@ -30,6 +42,7 @@
        <>
         <ButtonClick count={count}setCount={setCount} /> 
         <ButtonClick count={count}setCount={setCount} />
+        <RestButton count={count} setCount={setCount} />
        </>
       );
      }
