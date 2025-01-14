@@ -11,9 +11,9 @@
 
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
-    function ButtonClick(){
-      const [count,setCount]=React.useState(0);
-
+    function ButtonClick({count,setCount}){
+      
+       //Single Source of Truth:The App component acts as a single source of truth for the count.
       function buttonCount(){ //buttonCount is updater functions.
        setCount(count+1); //setCount only for read.
 
@@ -25,11 +25,12 @@
       );
     }
      function App(){
+      const [count,setCount]=React.useState(0); //paranet component sharing state of child component .
       return(
        <>
-        <ButtonClick />
-        <ButtonClick />
-        </>
+        <ButtonClick count={count}setCount={setCount} /> 
+        <ButtonClick count={count}setCount={setCount} />
+       </>
       );
      }
       
