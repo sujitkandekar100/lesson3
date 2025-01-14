@@ -11,34 +11,24 @@
 
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
-      function Counter({count,setCount}) {
-       //Single Source of Truth:The App component acts as a single source of truth for the count.
-        function increaseCount() {
-          setCount(count + 1);
-        }
+    function ButtonClick(){
+      function buttonCount(){
+       console.log('Clicked ');
+      };
+      return (
+        <>
+         <button onClick={buttonCount}>Click button</button>
+        </>
+      );
+    }
+     function App(){
+      return(
         
-        return (
-          <button onClick={increaseCount}>
-            Clicked {count} {count === 1 ? 'time' : 'times'}
-          </button>
-        );
-      }
-
-      function App() {
-        const [count, setCount] = React.useState(0); //State in Parent Component:The App component manages the count  state using useState. 2.It passes the count and setCount handler to its child components.
-        function restCount(){
-            setCount(0);
-        }
-
-        return (
-          <>
-            <Counter count={count} setCount={setCount}/>
-            <Counter  count={count} setCount={setCount}/>
-            <button onClick={restCount}>Rest</button>
-          </>
-        )
-      }
-
+        <ButtonClick />
+        
+      );
+     }
+      
       const container = document.querySelector('.js-container');
       ReactDOM.createRoot(container).render(<App />);
     </script>
