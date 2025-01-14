@@ -12,18 +12,21 @@
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
     function ButtonClick(){
-      function buttonCount(){
-       console.log('Clicked ');
+      const [count,setCount]=React.useState(0);
+
+      function buttonCount(){ //buttonCount is updater functions.
+       setCount(count+1); //setCount only for read.
+
       };
       return (
         <>
-         <button onClick={buttonCount}>Click button</button>
+         <button onClick={buttonCount}>Click button {count}</button>
         </>
       );
     }
      function App(){
       return(
-        
+       
         <ButtonClick />
         
       );
