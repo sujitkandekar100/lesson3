@@ -15,12 +15,17 @@
     <script type="text/babel">
       function ChatInput({ chatMessages, setChatMessages }) {
         const [inputText, setInputText] = React.useState('');
-
+        const [isLoading,setIsLoading]=React.useState(false);
         function saveInputText(event) {
           setInputText(event.target.value);
         }
 
         async function sendMessage() {
+          if(isLoading || inputText===''){
+            return ;
+          }
+          setIsLoading(true);
+          setInputText('');
           const newChatMessages = [
             ...chatMessages,
             {
@@ -41,8 +46,7 @@
               id: crypto.randomUUID()
             }
           ]);
-
-          setInputText('');
+          setIsLoading(false);
         }
         function handleKeyDown(event){
           if(event.key === 'Enter'){
