@@ -15,28 +15,25 @@
       
       function App() {
         const [inputText, setInputText] = React.useState('');
-
         function saveInputText(event) {
-        setInputText(event.target.value);
-            }
-          function restText(){
-            setInputText('');
-          }
-          function exampleOfText(){
-            setInputText('Jay Ganesh');
-          }
-            return (
-            <>
-                <input
-                onChange={saveInputText}
-                placeholder="Type a name here"
-                />
-                <p>Hello {inputText}</p>
-                <button onClick={restText}>resttext</button>
-                
-                <button onClick={exampleOfText}>Example</button>
-                    </>
-                    )
+          setInputText(event.target.value);
+        }
+        function restInputText()
+        {
+          setInputText('');
+        }
+        function exampleInputText(){
+          setInputText('Raj');
+        }
+       return (
+        <>
+        <input placeholder="type a name here " size="30" onChange={saveInputText}               value={inputText}
+        ></input>
+        <button onClick={restInputText}>Reset</button>
+        <button onClick={exampleInputText}>Example</button>
+        <p>My Name {inputText}</p>
+        </>
+       );
                 }
 
       const container = document.querySelector('.js-container');
