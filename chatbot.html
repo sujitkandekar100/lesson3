@@ -27,7 +27,7 @@
           setIsLoading(true);
           setInputText('');
           const newChatMessages = [
-            ...chatMessages,
+            ...chatMessages,  //spread operater taking multiple values 
             {
               message: inputText,
               sender: 'user',
@@ -61,7 +61,7 @@
             <input
               placeholder="Send a message to Chatbot"
               size="30"
-              onChange={saveInputText}
+              onChange={saveInputText}   
               onKeyDown={handleKeyDown} //handle event using function handleKeyDown
               value={inputText}
 
@@ -102,7 +102,7 @@
         );
       }
 
-      function ChatMessages({ chatMessages }) {
+      function ChatMessages({ chatMessages }) { //when updated after updated chatMessage.
         return (
           <>
             {chatMessages.map((chatMessage) => {
@@ -111,7 +111,7 @@
                   message={chatMessage.message}
                   sender={chatMessage.sender}
                   key={chatMessage.id}
-                />
+                />      //ChatMessage component called here 
               );
             })}
           </>
@@ -119,7 +119,7 @@
       }
 
       function App() {
-        const [chatMessages, setChatMessages] = React.useState([{
+        const [chatMessages, setChatMessages] = React.useState([{ 
           message: 'hello chatbot',
           sender: 'user',
           id: 'id1'
@@ -135,7 +135,7 @@
           message: 'Today is September 27',
           sender: 'robot',
           id: 'id4'
-        }]);
+        }]); //chatMessage ,setChatMessages is called a liftingshifing up because same state using ChatInput ,ChatMessages . 
         // const [chatMessages, setChatMessages] = array;
         // const chatMessages = array[0];
         // const setChatMessages = array[1];
