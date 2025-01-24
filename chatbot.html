@@ -14,8 +14,8 @@
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
       function ChatInput({ chatMessages, setChatMessages }) {
-        const [inputText, setInputText] = React.useState('');
-        const [isLoading,setIsLoading]=React.useState(false);
+        const [inputText, setInputText] = React.useState(''); //state:data connected to html.this is updated data after all code finished .inputText take value is undefined or current data and setInputText take value is updater function . 
+        const [isLoading,setIsLoading]=React.useState(false); 
         function saveInputText(event) {
           setInputText(event.target.value);
         }
